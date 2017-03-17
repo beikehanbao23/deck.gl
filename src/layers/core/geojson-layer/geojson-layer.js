@@ -26,8 +26,8 @@ import SolidPolygonLayer from '../solid-polygon-layer/solid-polygon-layer';
 
 import {getGeojsonFeatures, separateGeojsonFeatures} from './geojson';
 
-const defaultStrokeColor = [0xBD, 0xE2, 0x7A, 0xFF];
-const defaultFillColor = [0xBD, 0xE2, 0x7A, 0xFF];
+const defaultStrokeColor = [0x0, 0x0, 0x0, 0xFF];
+const defaultFillColor = [0x0, 0x0, 0x0, 0xFF];
 
 const defaultProps = {
   stroked: true,
@@ -43,11 +43,11 @@ const defaultProps = {
   // Point and polygon fill color
   getFillColor: f => get(f, 'properties.fillColor') || defaultFillColor,
   // Point radius
-  getRadius: f => get(f, 'properties.radius') || get(f, 'properties.size') || 5,
+  getRadius: f => get(f, 'properties.radius') || get(f, 'properties.size') || 1,
   // Line and polygon outline accessors
   getWidth: f => get(f, 'properties.strokeWidth') || 1,
   // Polygon extrusion accessor
-  getElevation: f => 1000
+  getElevation: f => get(f, 'properties.elevation') || 1000
 };
 
 const getCoordinates = f => get(f, 'geometry.coordinates');

@@ -23,8 +23,8 @@ import SolidPolygonLayer from '../solid-polygon-layer/solid-polygon-layer';
 import PathLayer from '../path-layer/path-layer';
 import * as Polygon from '../solid-polygon-layer/polygon';
 
-const defaultColor = [0xBD, 0xE2, 0x7A, 0xFF];
-const defaultFillColor = [0xBD, 0xE2, 0x7A, 0xFF];
+const defaultColor = [0x0, 0x0, 0x0, 0xFF];
+const defaultFillColor = [0x0, 0x0, 0x0, 0xFF];
 
 const defaultProps = {
   stroked: true,
@@ -33,8 +33,8 @@ const defaultProps = {
   wireframe: false,
   fp64: false,
 
-  // TODO: Missing props: radiusMinPixels, strokeWidthMinPixels, ...
-
+  // Polygon structure
+  getPolygon: f => f,
   // Polygon fill color
   getFillColor: f => get(f, 'fillColor') || defaultFillColor,
   // Point, line and polygon outline color
@@ -42,7 +42,7 @@ const defaultProps = {
   // Line and polygon outline accessors
   getWidth: f => get(f, 'strokeWidth') || 1,
   // Polygon extrusion accessor
-  getElevation: f => 1000
+  getElevation: f => get(f, 'elevation') || 1000
 };
 
 export default class PolygonLayer extends CompositeLayer {

@@ -85,8 +85,6 @@ const GeoJsonLayerExample = {
     },
     getWidth: f => f.properties['stroke-width'],
     getElevation: f => 500,
-    widthScale: 10,
-    widthMinPixels: 1,
     pickable: true
   }
 };
